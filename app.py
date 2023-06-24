@@ -1,10 +1,6 @@
 import streamlit as st
 
 # set the app's title
-st.title("Text Elements")
+st.title("SBET Parser")
 
-# header
-st.header("Header in Streamlit")
-
-# subheader
-st.subheader("Subheader in Streamlit")
+sbet_f = st.file_uploader("SBET File")
