@@ -13,7 +13,6 @@ if sbet_f is not None:
     bytes_data = sbet_f.getvalue()
 
     sbet = np.frombuffer(bytes_data,dtype=np.float64).reshape((-1,17))
-
     
     st.subheader("Position")
     latlng = utm.from_latlon(sbet[:,1]*180.0/np.pi,sbet[:,2]*180.0/np.pi)
@@ -101,9 +100,9 @@ if smrmsg_f is not None:
 
     st.subheader("Angular RMS Error")
     fig, ax = plt.subplots()
-    line1, = ax.plot(smrmsg[:,0],smrmsg[:,7]*0.0166667,'r-',label='North')
-    line2, = ax.plot(smrmsg[:,0],smrmsg[:,8]*0.0166667,'b-',label='East')
-    line3, = ax.plot(smrmsg[:,0],smrmsg[:,9]*0.0166667,'g-',label='Down')
+    line1, = ax.plot(smrmsg[:,0],smrmsg[:,7]*0.0166667,'r-',label='Roll')
+    line2, = ax.plot(smrmsg[:,0],smrmsg[:,8]*0.0166667,'b-',label='Pitch')
+    line3, = ax.plot(smrmsg[:,0],smrmsg[:,9]*0.0166667,'g-',label='Heading')
     ax.set_ylabel('Angular RMS Error [deg]')
     ax.set_xlabel('Time [s]')
     ax.legend(handles=[line1,line2,line3])
